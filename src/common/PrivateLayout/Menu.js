@@ -1,19 +1,21 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Divider from "@material-ui/core/Divider";
-import ListItemText from "@material-ui/core/ListItemText";
+import { t } from "i18next"
+import React, { Component } from "react"
+import { Link } from "react-router-dom"
+import { withStyles } from "@material-ui/core/styles"
+import Drawer from "@material-ui/core/Drawer"
+import List from "@material-ui/core/List"
+import ListItem from "@material-ui/core/ListItem"
+import Divider from "@material-ui/core/Divider"
+import ListItemText from "@material-ui/core/ListItemText"
 
 export const menuItems = [
   /*
    * Content related pages
    */
-  { to: "/", text: "Dashboard" },
+  { to: "/", text: t("common.menu.dashboard") },
+  { to: "/investments", text: t("common.menu.investments") },
   { divider: true }
-];
+]
 
 const styles = theme => ({
   drawerPaper: {
@@ -22,12 +24,12 @@ const styles = theme => ({
   listItemText: {
     fontSize: 14
   }
-});
+})
 
 class Menu extends Component {
   renderMenuLink = ({ to, text, divider }, index) => {
     if (divider) {
-      return <Divider key={index} data-test="divider" />;
+      return <Divider key={index} data-test="divider" />
     }
 
     return (
@@ -38,11 +40,11 @@ class Menu extends Component {
           data-test="link-text"
         />
       </ListItem>
-    );
-  };
+    )
+  }
 
   render() {
-    const { classes, open, onClose } = this.props;
+    const { classes, open, onClose } = this.props
 
     return (
       <Drawer
@@ -52,8 +54,8 @@ class Menu extends Component {
       >
         <List>{menuItems.map(this.renderMenuLink)}</List>
       </Drawer>
-    );
+    )
   }
 }
 
-export default withStyles(styles)(Menu);
+export default withStyles(styles)(Menu)
