@@ -6,6 +6,7 @@ import { AuthProvider } from "app/common/AuthContext"
 import Layout from "app/common/Layout"
 import { SnackbarProvider } from "app/common/Snackbar"
 import { LoadingIndicatorProvider } from "app/common/LoadingIndicator"
+import { URLSearchProvider } from "app/common/URLSearch"
 import localStorage from "app/utils/localStorage"
 import createApolloClient from "app/utils/createApolloClient"
 import routes from "./routes"
@@ -72,7 +73,9 @@ class App extends Component {
           >
             <SnackbarProvider>
               <Router history={this.history}>
-                <Layout>{routes}</Layout>
+                <URLSearchProvider>
+                  <Layout>{routes}</Layout>
+                </URLSearchProvider>
               </Router>
             </SnackbarProvider>
           </AuthProvider>
