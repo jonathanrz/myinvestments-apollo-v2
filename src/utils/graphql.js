@@ -49,15 +49,15 @@ export function listQuery(query, fields, customVariables = {}) {
 
 export function getQuery(query, fields) {
   return gql`
-    query ${query}($id: Int!) {
-      ${query}(id: $id) {
+    query ${query}($uuid: Int!) {
+      ${query}(uuid: $uuid) {
         ${parseFields(fields)}
       }
     }
   `
 }
 
-export function createMutation(mutation, inputType, fields = ["id"]) {
+export function createMutation(mutation, inputType, fields = ["uuid"]) {
   return gql`
     mutation ${mutation}($input: ${inputType}!) {
       ${mutation}(input: $input) {
@@ -67,20 +67,20 @@ export function createMutation(mutation, inputType, fields = ["id"]) {
   `
 }
 
-export function updateMutation(mutation, inputType, fields = ["id"]) {
+export function updateMutation(mutation, inputType, fields = ["uuid"]) {
   return gql`
-    mutation ${mutation}($id: Int!, $input: ${inputType}!) {
-      ${mutation}(id: $id, input: $input) {
+    mutation ${mutation}($uuid: Int!, $input: ${inputType}!) {
+      ${mutation}(uuid: $uuid, input: $input) {
         ${parseFields(fields)}
       }
     }
   `
 }
 
-export function destroyMutation(mutation, fields = ["id"]) {
+export function destroyMutation(mutation, fields = ["uuid"]) {
   return gql`
-    mutation ${mutation}($id: Int!) {
-      ${mutation}(id: $id) {
+    mutation ${mutation}($uuid: Int!) {
+      ${mutation}(uuid: $uuid) {
         ${parseFields(fields)}
       }
     }

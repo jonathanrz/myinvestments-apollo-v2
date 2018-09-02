@@ -12,7 +12,7 @@ describe("FormPage", () => {
           mutation: "SOME MUTATION",
           children: "SOME CHILDREN",
           initialValues: "SOME INITIALVALUES",
-          returnHref: data => `SOME RETURNHREF ${data.id}`,
+          returnHref: data => `SOME RETURNHREF ${data.uuid}`,
           parseVariables: "SOME PARSEVARIABLES",
           successMessage: "SOME SUCCESSMESSAGE",
           errorMessage: "SOME ERRORMESSAGE",
@@ -105,7 +105,7 @@ describe("FormPage", () => {
   describe("render prop", () => {
     it("shows a snackbar and redirects on success", () => {
       const response = {
-        data: { id: 42 }
+        data: { uuid: 42 }
       }
 
       const wrapper = buildFormChild(
@@ -122,7 +122,7 @@ describe("FormPage", () => {
 
       expectDataTest(wrapper, "redirect").toHaveProp(
         "to",
-        `SOME RETURNHREF ${response.data.id}`
+        `SOME RETURNHREF ${response.data.uuid}`
       )
     })
 

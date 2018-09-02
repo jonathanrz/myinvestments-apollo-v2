@@ -31,7 +31,7 @@ function createCRUD({
     title: t(`${i18nKey}.listPage.title`),
     query: listQuery,
     createHref: path("/create"),
-    buildUpdateHref: node => `/${pathPreffix}/${node.id}/update`,
+    buildUpdateHref: node => `/${pathPreffix}/${node.uuid}/update`,
     columns: listColumns,
     cellStyle,
     hasSearch
@@ -70,10 +70,15 @@ function createCRUD({
   }
 
   function GeneratedUpdatePage(props) {
-    const { id } = props.match.params
+    const { uuid } = props.match.params
 
     return (
-      <UpdatePage id={id} {...upsertPageProps} {...updatePageProps} {...props}>
+      <UpdatePage
+        uuid={uuid}
+        {...upsertPageProps}
+        {...updatePageProps}
+        {...props}
+      >
         <UpsertForm {...props} update />
       </UpdatePage>
     )

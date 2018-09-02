@@ -58,7 +58,7 @@ function Buttons({
                 </Fragment>
               )}
               <ConfirmationDialog
-                onConfirm={() => destroy({ variables: { id: data.id } })}
+                onConfirm={() => destroy({ variables: { uuid: data.uuid } })}
                 message={t("updatePage.destroyConfirmMessage")}
               >
                 {confirm => (

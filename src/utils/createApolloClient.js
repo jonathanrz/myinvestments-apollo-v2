@@ -57,7 +57,9 @@ export default function createApolloClient({ getToken, onUnauthorized }) {
 
   const client = new ApolloClient({
     link: errorAfterware.concat(concat(authMiddleware, httpLink)),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache({
+      dataIdFromObject: object => object.uuid || null
+    })
     /*
      * It seems the we can't set the default
      * fetch policy here because this is broken

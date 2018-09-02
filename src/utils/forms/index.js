@@ -1,5 +1,4 @@
 import React from "react"
-import pluralize from "pluralize"
 import BaseField from "app/common/formFields/Base"
 
 export function makeField(render, displayName) {
@@ -45,8 +44,4 @@ export function normalizeObject(config) {
 
     return normalizedValues
   }
-}
-
-export function relationIdField(name, isMulti) {
-  return isMulti ? `${pluralize.singular(name)}Ids` : `${name}Id`
 }

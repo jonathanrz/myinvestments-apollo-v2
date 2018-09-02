@@ -8,7 +8,7 @@ import Buttons from "./Buttons"
 
 function UpdatePage({
   query,
-  id,
+  uuid,
   updateMutation,
   destroyMutation,
   parseInput = identity,
@@ -21,7 +21,7 @@ function UpdatePage({
   const queryKey = getQueryKey(query)
 
   return (
-    <Query query={query} variables={{ id }}>
+    <Query query={query} variables={{ uuid }}>
       {({ data, loading }) => {
         if (loading) {
           return null
@@ -37,8 +37,8 @@ function UpdatePage({
           <FormPage
             {...props}
             mutation={updateMutation}
-            parseVariables={values => ({ id, input: parseOutput(values) })}
-            initialValues={omit(["id", "__typename"], record)}
+            parseVariables={values => ({ uuid, input: parseOutput(values) })}
+            initialValues={omit(["uuid", "__typename"], record)}
             successMessage={successMessage}
             errorMessage={errorMessage}
             returnHref={returnHref}

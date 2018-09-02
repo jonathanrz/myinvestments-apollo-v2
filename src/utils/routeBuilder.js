@@ -64,7 +64,7 @@ const routeBuilder = {
   crud(preffix, file) {
     this.private(preffix, file, "ListPage")
     this.private(`${preffix}/create`, file, "CreatePage")
-    this.private(`${preffix}/:id/update`, file, "UpdatePage")
+    this.private(`${preffix}/:uuid/update`, file, "UpdatePage")
 
     return this
   }

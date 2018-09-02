@@ -1,9 +1,9 @@
-export function findDataTest(wrapper, id) {
-  return wrapper.find(`[data-test="${id}"]`)
+export function findDataTest(wrapper, uuid) {
+  return wrapper.find(`[data-test="${uuid}"]`)
 }
 
-export function findDataTests(wrapper, id) {
-  return wrapper.findWhere(item => item.prop("data-test") === id)
+export function findDataTests(wrapper, uuid) {
+  return wrapper.findWhere(item => item.prop("data-test") === uuid)
 }
 
 export function expectDataTest(...args) {
