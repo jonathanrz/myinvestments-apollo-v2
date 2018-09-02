@@ -7,6 +7,11 @@ function build() {
   const history = {
     listen: jest.fn()
   }
+
+  jest.mock("i18next", () => ({
+    t: s => s
+  }))
+
   return shallow(<PrivateLayout classes={{}} history={history} />)
 }
 

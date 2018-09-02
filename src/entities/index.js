@@ -7,7 +7,7 @@
  * because that is a webpack feature
  * and is not supported by jest
  */
-module.exports = [require("./currentUser"), require("./investments")].reduce(
+module.exports = [require("./currentUser"), require("./investment")].reduce(
   (acc, { default: module }) => ({
     ...acc,
     [module.name]: module
