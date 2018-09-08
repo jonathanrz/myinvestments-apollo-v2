@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 const someQuery = gql`
   {
     items {
-      id
+      uuid
       name
     }
   }

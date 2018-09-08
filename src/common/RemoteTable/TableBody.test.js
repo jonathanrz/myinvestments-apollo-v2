@@ -11,7 +11,7 @@ describe("TableBody", () => {
 
   const edges = times(10, i => ({
     node: {
-      id: i,
+      uuid: i,
       prop1: `prop1-${i}`,
       prop2: `prop2-${i}`,
       prop3: `prop3-${i}`,
@@ -74,7 +74,7 @@ describe("TableBody", () => {
     wrapper = shallow(
       <TableBody
         columns={[{ path: "name", component: CustomComponent }]}
-        edges={[{ node: { id: 1, name: "Some Name" } }]}
+        edges={[{ node: { uuid: 1, name: "Some Name" } }]}
         buildUpdateHref={() => null}
       />
     )

@@ -7,12 +7,17 @@ import TableRow from "@material-ui/core/TableRow"
 function TableBody({ edges, columns, cellStyle }) {
   return (
     <MUITableBody>
-      {edges.map(({ node }) => (
-        <TableRow key={node.id} data-test="row">
+      {edges.map(node => (
+        <TableRow key={node.uuid} data-test="row">
           {columns.map(({ path, columnProps, component: Component }, index) => {
             const value = path ? get(path, node) : node
             return (
-              <TableCell style={cellStyle} {...columnProps} data-test="cell" key={index}>
+              <TableCell
+                style={cellStyle}
+                {...columnProps}
+                data-test="cell"
+                key={index}
+              >
                 {Component ? <Component value={value} /> : value}
               </TableCell>
             )

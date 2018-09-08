@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config()
 }
 
-const envVarsToInject = ["NODE_ENV"]
+const envVarsToInject = ["NODE_ENV", "GRAPHQL_API_URL"]
 
 module.exports = {
   mode: process.env.NODE_ENV || "development",

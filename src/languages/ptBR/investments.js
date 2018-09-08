@@ -1,4 +1,7 @@
 export default {
+  listPage: {
+    title: "Investimentos"
+  },
   upsertPages: {
     title: "Investimentos",
     createTitle: "Criar investimento",
