@@ -14,7 +14,7 @@ function CreatePage({
   return (
     <FormPage
       {...props}
-      parseVariables={values => ({ input: parseOutput(values) })}
+      parseVariables={values => ({ data: parseOutput(values) })}
       successMessage={successMessage}
       errorMessage={errorMessage}
       buttons={

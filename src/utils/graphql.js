@@ -59,8 +59,8 @@ export function getQuery(query, fields) {
 
 export function createMutation(mutation, inputType, fields = ["uuid"]) {
   return gql`
-    mutation ${mutation}($input: ${inputType}!) {
-      ${mutation}(input: $input) {
+    mutation ${mutation}($data: ${inputType}!) {
+      ${mutation}(data: $data) {
         ${parseFields(fields)}
       }
     }
@@ -69,8 +69,8 @@ export function createMutation(mutation, inputType, fields = ["uuid"]) {
 
 export function updateMutation(mutation, inputType, fields = ["uuid"]) {
   return gql`
-    mutation ${mutation}($uuid: Int!, $input: ${inputType}!) {
-      ${mutation}(uuid: $uuid, input: $input) {
+    mutation ${mutation}($uuid: Int!, $data: ${inputType}!) {
+      ${mutation}(uuid: $uuid, data: $data) {
         ${parseFields(fields)}
       }
     }

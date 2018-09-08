@@ -5,6 +5,9 @@ export default gql`
     investments {
       uuid
       name
+      type
+      holder
+      objective
     }
   }
 `

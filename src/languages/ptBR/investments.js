@@ -10,6 +10,9 @@ export default {
     genericErrorMessage: "Ocorreu um erro ao salvar o investimento"
   },
   fields: {
-    name: "Nome"
+    name: "Nome",
+    type: "Tipo",
+    holder: "Detentor",
+    objective: "Objetivo"
   }
 }

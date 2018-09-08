@@ -37,7 +37,7 @@ function UpdatePage({
           <FormPage
             {...props}
             mutation={updateMutation}
-            parseVariables={values => ({ uuid, input: parseOutput(values) })}
+            parseVariables={values => ({ uuid, data: parseOutput(values) })}
             initialValues={omit(["uuid", "__typename"], record)}
             successMessage={successMessage}
             errorMessage={errorMessage}
