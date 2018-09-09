@@ -2,7 +2,7 @@ import * as graphqlUtils from "app/utils/graphql"
 
 export default {
   name: "Investment",
-  getQuery: graphqlUtils.getQuery("investments", [
+  getQuery: graphqlUtils.getQuery("investment", [
     "uuid",
     "name",
     "type",

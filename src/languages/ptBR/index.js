@@ -3,5 +3,6 @@ export default {
   createPage: require("./createPage").default,
   investments: require("./investments").default,
   login: require("./login").default,
-  listPage: require("./listPage").default
+  listPage: require("./listPage").default,
+  updatePage: require("./updatePage").default
 }

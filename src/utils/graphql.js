@@ -49,7 +49,7 @@ export function listQuery(query, fields, customVariables = {}) {
 
 export function getQuery(query, fields) {
   return gql`
-    query ${query}($uuid: Int!) {
+    query ${query}($uuid: String!) {
       ${query}(uuid: $uuid) {
         ${parseFields(fields)}
       }
@@ -69,7 +69,7 @@ export function createMutation(mutation, inputType, fields = ["uuid"]) {
 
 export function updateMutation(mutation, inputType, fields = ["uuid"]) {
   return gql`
-    mutation ${mutation}($uuid: Int!, $data: ${inputType}!) {
+    mutation ${mutation}($uuid: String!, $data: ${inputType}!) {
       ${mutation}(uuid: $uuid, data: $data) {
         ${parseFields(fields)}
       }
@@ -79,7 +79,7 @@ export function updateMutation(mutation, inputType, fields = ["uuid"]) {
 
 export function destroyMutation(mutation, fields = ["uuid"]) {
   return gql`
-    mutation ${mutation}($uuid: Int!) {
+    mutation ${mutation}($uuid: String!) {
       ${mutation}(uuid: $uuid) {
         ${parseFields(fields)}
       }
