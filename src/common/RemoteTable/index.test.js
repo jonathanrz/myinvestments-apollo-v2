@@ -7,7 +7,7 @@ import RemoteTable from "./index"
 const someQuery = gql`
   {
     items {
-      id
+      uuid
       name
     }
   }
