@@ -59,7 +59,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(`url ${process.env.GRAPHQL_API_URL}`)
     if (this.state.error) {
       return null
     }

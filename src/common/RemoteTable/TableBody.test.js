@@ -10,16 +10,14 @@ describe("TableBody", () => {
   const buildUpdateHref = ({ prop6 }) => `update-link-${prop6}`
 
   const edges = times(10, i => ({
-    node: {
-      uuid: i,
-      prop1: `prop1-${i}`,
-      prop2: `prop2-${i}`,
-      prop3: `prop3-${i}`,
-      prop4: `prop4-${i}`,
-      prop5: `prop5-${i}`,
-      prop6: `prop6-${i}`,
-      some: { deep: { prop: `some.deep.prop-${i}` } }
-    }
+    uuid: i,
+    prop1: `prop1-${i}`,
+    prop2: `prop2-${i}`,
+    prop3: `prop3-${i}`,
+    prop4: `prop4-${i}`,
+    prop5: `prop5-${i}`,
+    prop6: `prop6-${i}`,
+    some: { deep: { prop: `some.deep.prop-${i}` } }
   }))
 
   const columns = [
@@ -46,7 +44,7 @@ describe("TableBody", () => {
 
     rows.forEach((row, rowIndex) => {
       const cells = findDataTests(row, "cell")
-      const node = edges[rowIndex].node
+      const node = edges[rowIndex]
 
       columns.forEach((column, cellIndex) => {
         expect(cells.at(cellIndex)).toHaveProp(
@@ -62,7 +60,7 @@ describe("TableBody", () => {
 
     rows.forEach((row, rowIndex) => {
       const updateLink = findDataTests(row, "update-link")
-      const node = edges[rowIndex].node
+      const node = edges[rowIndex]
 
       expect(updateLink).toHaveProp("to", `update-link-${node.prop6}`)
     })
@@ -74,7 +72,7 @@ describe("TableBody", () => {
     wrapper = shallow(
       <TableBody
         columns={[{ path: "name", component: CustomComponent }]}
-        edges={[{ node: { uuid: 1, name: "Some Name" } }]}
+        edges={[{ uuid: 1, name: "Some Name" }]}
         buildUpdateHref={() => null}
       />
     )
