@@ -1,6 +1,6 @@
 import { t } from "i18next"
 import React from "react"
-import entities from "app/entities"
+import * as entities from "app/entities"
 import ListPage from "app/common/ListPage"
 import CreatePage from "app/common/CreatePage"
 import UpdatePage from "app/common/UpdatePage"

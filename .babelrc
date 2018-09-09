@@ -4,13 +4,7 @@
     "react-hot-loader/babel",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": true
-      }
-    ],
+    "@babel/plugin-transform-runtime",
     [
       "module-resolver",
       {
