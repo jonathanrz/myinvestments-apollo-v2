@@ -1,7 +1,15 @@
 {
-  "name": "machtraining",
+  "name": "myinvestments",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "dev": "webpack-dev-server --hot",
+    "lint": "eslint \"./src/**/*.js\"",
+    "test": "jest",
+    "test:dev": "jest --watch --coverage",
+    "format": "prettier \"./src/**/*.js\" --write"
+  },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
@@ -63,19 +71,5 @@
     "react-final-form": "^3.5.1",
     "react-router-dom": "^4.2.2",
     "reset-css": "^3.0.0"
-  },
-  "scripts": {
-    "test": "jest",
-    "dev": "webpack-dev-server --hot",
-    "build": "NODE_ENV=production webpack",
-    "lint": "eslint \"./src/**/*.js\"",
-    "format": "prettier \"./src/**/*.js\" --write"
-  },
-  "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/jest/setup.js",
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/jest/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/jest/styleMock.js"
-    }
   }
 }
