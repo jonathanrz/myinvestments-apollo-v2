@@ -1,4 +1,5 @@
 import React, { Fragment } from "react"
+import { t } from "i18next"
 import { withStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
@@ -41,31 +42,47 @@ function Body({ classes, investment, incomes }) {
   return (
     <Fragment>
       <div className={classes.details}>
-        <TextField label="Nome" value={investment.name} disabled />
-        <TextField label="Tipo" value={investment.type} disabled />
-        <TextField label="Detentor" value={investment.holder} disabled />
-        <TextField label="Objetivo" value={investment.objective} disabled />
+        <TextField
+          label={t("investment.labels.name")}
+          value={investment.name}
+          disabled
+        />
+        <TextField
+          label={t("investment.labels.type")}
+          value={investment.type}
+          disabled
+        />
+        <TextField
+          label={t("investment.labels.holder")}
+          value={investment.holder}
+          disabled
+        />
+        <TextField
+          label={t("investment.labels.objective")}
+          value={investment.objective}
+          disabled
+        />
       </div>
-      <p className={classes.subtitle}>Rendimentos</p>
+      <p className={classes.subtitle}>{t("investment.incomes")}</p>
       {incomes.map(income => (
         <Card className={classes.card} key={income.uuid}>
           <CardContent>
             <Typography className={classes.header} color="textSecondary">
               <TextField
                 className={classes.field}
-                label="Quantidade"
+                label={t("investment.labels.quantity")}
                 value={income.quantity}
                 disabled
               />
             </Typography>
             <div className={classes.fields}>
               {[
-                { label: "Valor", value: income.value },
-                { label: "Comprado", value: income.bought },
-                { label: "Vendido", value: income.sold },
-                { label: "Rendimento", value: income.gross },
-                { label: "IR", value: income.ir },
-                { label: "Taxa", value: income.fee }
+                { label: t("investment.labels.value"), value: income.value },
+                { label: t("investment.labels.bought"), value: income.bought },
+                { label: t("investment.labels.sold"), value: income.sold },
+                { label: t("investment.labels.gross"), value: income.gross },
+                { label: t("investment.labels.ir"), value: income.ir },
+                { label: t("investment.labels.fee"), value: income.fee }
               ].map((field, index) => (
                 <TextField
                   key={index}
