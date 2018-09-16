@@ -36,6 +36,13 @@ function InvestmentCard({ classes, result: investment, updateHref }) {
         </Typography>
       </CardContent>
       <CardActions className={classes.actions}>
+        <Button
+          href={`investment/${investment.uuid}}`}
+          size="small"
+          color="primary"
+        >
+          Ver investimento
+        </Button>
         <Button href={updateHref} size="small" color="primary">
           Editar investimento
         </Button>
