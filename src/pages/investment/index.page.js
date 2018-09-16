@@ -1,6 +1,6 @@
 import React from "react"
 import { orderBy } from "lodash/fp"
-import Query from "app/common/query"
+import Query from "app/common/Query"
 
 import query from "./query"
 import Body from "./Body"
