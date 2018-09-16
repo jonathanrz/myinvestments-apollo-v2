@@ -1,7 +1,7 @@
 import gql from "graphql-tag"
 import React from "react"
 import { shallow } from "enzyme"
-import { findDataTest, expectDataTest } from "app/utils/tests"
+import { findDataTest } from "app/utils/tests"
 import RemoteTable from "./index"
 
 const someQuery = gql`
@@ -42,20 +42,6 @@ describe("ListPage", () => {
 
     it("renders nothing if the query is loading", () => {
       expect(renderInner({ loading: true })).toHaveProp("children", null)
-    })
-
-    it("passes the right props to TableHead component", () => {
-      expectDataTest(renderInner(), "table-head").toHaveProp(
-        "columns",
-        "SOME COLUMNS"
-      )
-    })
-
-    it("passes the right props to TableBody component", () => {
-      expectDataTest(renderInner(), "table-body").toHaveProp({
-        edges: "SOME DATA",
-        columns: "SOME COLUMNS"
-      })
     })
   })
 })

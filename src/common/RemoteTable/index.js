@@ -1,12 +1,16 @@
-import React from "react"
-import Table from "@material-ui/core/Table"
-import Paper from "@material-ui/core/Paper"
+import React, { Fragment } from "react"
 import Query from "app/common/Query"
 import { getQueryKey } from "app/utils/graphql"
-import TableHead from "./TableHead"
-import TableBody from "./TableBody"
 
-function RemoteTable({ query, variables, queryProps, columns, cellStyle }) {
+function RemoteTable({
+  query,
+  variables,
+  queryProps,
+  columns,
+  cellStyle,
+  buildUpdateHref,
+  listCard: ListCard
+}) {
   const queryKey = getQueryKey(query)
 
   return (
@@ -24,17 +28,15 @@ function RemoteTable({ query, variables, queryProps, columns, cellStyle }) {
         }
 
         return (
-          <Paper>
-            <Table>
-              <TableHead data-test="table-head" columns={columns} />
-              <TableBody
-                data-test="table-body"
-                edges={result}
-                columns={columns}
-                cellStyle={cellStyle}
+          <Fragment>
+            {result.map((result, index) => (
+              <ListCard
+                key={index}
+                result={result}
+                updateHref={buildUpdateHref(result)}
               />
-            </Table>
-          </Paper>
+            ))}
+          </Fragment>
         )
       }}
     </Query>

@@ -5,9 +5,6 @@ import AddIcon from "@material-ui/icons/Add"
 import ButtonWithIcon from "app/common/ButtonWithIcon"
 import PageHeader from "app/common/PageHeader"
 import RemoteTable from "app/common/RemoteTable"
-import SearchableRemoteTable from "app/common/SearchableRemoteTable"
-import IconButton from "@material-ui/core/IconButton"
-import EditIcon from "@material-ui/icons/Edit"
 
 function ListPage({
   title,
@@ -17,10 +14,8 @@ function ListPage({
   cellStyle,
   createHref,
   buildUpdateHref,
-  hasSearch = false
+  listCard
 }) {
-  const TableComponent = hasSearch ? SearchableRemoteTable : RemoteTable
-
   return (
     <Fragment>
       <PageHeader
@@ -35,27 +30,13 @@ function ListPage({
           />
         }
       />
-      <TableComponent
+      <RemoteTable
         data-test="base-list-page"
         query={query}
         variables={variables}
         cellStyle={cellStyle}
-        columns={[
-          ...columns,
-          {
-            columnProps: { numeric: true },
-            header: "",
-            component: ({ value }) => (
-              <IconButton
-                component={Link}
-                to={buildUpdateHref(value)}
-                data-test="update-link"
-              >
-                <EditIcon />
-              </IconButton>
-            )
-          }
-        ]}
+        buildUpdateHref={buildUpdateHref}
+        listCard={listCard}
       />
     </Fragment>
   )
