@@ -1,4 +1,5 @@
 import React from "react"
+import { t } from "i18next"
 import { withStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import Card from "@material-ui/core/Card"
@@ -41,10 +42,10 @@ function InvestmentCard({ classes, result: investment, updateHref }) {
           size="small"
           color="primary"
         >
-          Ver investimento
+          {t("investments.actions.show")}
         </Button>
         <Button href={updateHref} size="small" color="primary">
-          Editar investimento
+          {t("investments.actions.update")}
         </Button>
       </CardActions>
     </Card>

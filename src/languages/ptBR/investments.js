@@ -14,5 +14,9 @@ export default {
     type: "Tipo",
     holder: "Detentor",
     objective: "Objetivo"
+  },
+  actions: {
+    show: "Ver investimento",
+    update: "Editar investimento"
   }
 }
