@@ -2,8 +2,9 @@ import routeBuilder from "app/utils/routeBuilder"
 
 routeBuilder
   .redirect("/", "/dashboard")
-  .crud("/investments", "investments")
   .private("/dashboard", "dashboard")
+  .crud("/investments", "investments")
+  .private("/investment/:uuid", "investment")
   .public("/login", "login")
   .public("/internalError", "internalError")
   /*
