@@ -3,7 +3,6 @@ import React from "react"
 import { shallow } from "enzyme"
 import { findDataTest } from "app/utils/tests"
 import ListPage from "./index"
-import { Link } from "react-router-dom"
 
 const someQuery = gql`
   {
@@ -36,20 +35,6 @@ describe("ListPage", () => {
       const createButton = pageHeader.prop("buttons")
       expect(pageHeader).toHaveProp("title", "SOME TITLE")
       expect(createButton.props.to).toBe("SOME CREATE HREF")
-    })
-
-    it("renders the Edit column at the end of columns", () => {
-      const columns = findDataTest(wrapper, "base-list-page").props().columns
-      const lastColumn = columns[columns.length - 1]
-      expect(lastColumn.header).toEqual("")
-
-      const editComponent = shallow(
-        lastColumn.component({ value: "column fake value" })
-      )
-      const updateLink = findDataTest(editComponent, "update-link")
-      expect(updateLink).toHaveProp({
-        component: Link
-      })
     })
   })
 })

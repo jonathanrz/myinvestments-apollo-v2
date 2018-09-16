@@ -12,10 +12,10 @@ function createCRUD({
   i18nKey,
   listColumns,
   upsertForm: UpsertForm,
+  listCard,
   create,
   update,
-  upsert,
-  hasSearch
+  upsert
 }) {
   const path = path => `/${pathPreffix}${path || ""}`
 
@@ -34,7 +34,7 @@ function createCRUD({
     buildUpdateHref: node => `/${pathPreffix}/${node.uuid}/update`,
     columns: listColumns,
     cellStyle,
-    hasSearch
+    listCard
   }
 
   const createPageProps = {
