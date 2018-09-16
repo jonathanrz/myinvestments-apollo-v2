@@ -1,6 +1,7 @@
 import { t } from "i18next"
 import createCRUD from "app/utils/createCRUD"
 import Form from "./Form"
+import Card from "./Card"
 
 const fields = ["name", "type", "holder", "objective"]
 
@@ -8,7 +9,11 @@ const { ListPage, CreatePage, UpdatePage } = createCRUD({
   entity: "Investment",
   pathPreffix: "investments",
   i18nKey: "investments",
-  listColumns: fields.map(field => ({ header: t(`investments.fields.${field}`), path: field })),
+  listColumns: fields.map(field => ({
+    header: t(`investments.fields.${field}`),
+    path: field
+  })),
+  listCard: Card,
   upsertForm: Form,
   upsert: {
     errorMessage: error =>
