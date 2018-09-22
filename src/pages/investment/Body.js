@@ -4,7 +4,8 @@ import { withStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
-import TextField from "@material-ui/core/TextField"
+import DateField from "app/common/DateField"
+import TextField from "app/common/TextField"
 
 const styles = {
   card: {
@@ -45,22 +46,22 @@ function Body({ classes, investment, incomes }) {
         <TextField
           label={t("investment.labels.name")}
           value={investment.name}
-          disabled
         />
         <TextField
           label={t("investment.labels.type")}
           value={investment.type}
-          disabled
         />
         <TextField
           label={t("investment.labels.holder")}
           value={investment.holder}
-          disabled
         />
         <TextField
           label={t("investment.labels.objective")}
           value={investment.objective}
-          disabled
+        />
+        <DateField
+          label={t("investment.labels.dueDate")}
+          value={investment.dueDate}
         />
       </div>
       <p className={classes.subtitle}>{t("investment.incomes")}</p>

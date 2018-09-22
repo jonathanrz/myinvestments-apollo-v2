@@ -6,6 +6,7 @@ import Card from "@material-ui/core/Card"
 import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
+import DatePrinter from "app/common/DatePrinter"
 
 const styles = {
   actions: {
@@ -31,6 +32,11 @@ function InvestmentCard({ classes, result: investment, updateHref }) {
           <span>{investment.type}</span>
           <span>{investment.holder}</span>
           <span>{investment.objective}</span>
+          {investment.dueDate && (
+            <Typography color="secondary">
+              <DatePrinter value={investment.dueDate} />
+            </Typography>
+          )}
         </Typography>
         <Typography variant="headline" component="h2">
           {investment.name}
