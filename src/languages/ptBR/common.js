@@ -1,8 +1,8 @@
 export default {
   siteTitle: "Meus Investimentos",
   logout: "Logout",
-  dateFormat: "dd/MM/YYYY",
-  dateTimeFormat: "dd/MM/YYYY [-] HH[h]mm",
+  dateFormat: "dd/MM/yyyy",
+  dateTimeFormat: "dd/MM/yyyy [-] HH[h]mm",
   clearLabel: "Limpar",
   back: "Voltar",
   close: "Fechar",
