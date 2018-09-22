@@ -13,7 +13,16 @@ const { ListPage, CreatePage, UpdatePage } = createCRUD({
     errorMessage: error =>
       error.message && error.message.includes("duplicate key")
         ? t("investments.upsertPages.duplicateInvestment")
-        : t("investments.upsertPages.genericErrorMessage")
+        : t("investments.upsertPages.genericErrorMessage"),
+    parseOutput: data => {
+      if (data.dueDate) {
+        return {
+          ...data,
+          dueDate: parseInt(data.dueDate)
+        }
+      }
+      return data
+    }
   }
 })
 

@@ -1,5 +1,5 @@
 import { t } from "i18next"
-import { format as formatDate } from "date-fns"
+import { formatDate } from "app/utils/date"
 
 function DatePrinter({ value, format = t("common.dateFormat") }) {
   if (!value) {

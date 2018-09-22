@@ -11,6 +11,7 @@ export default {
     sold: "Vendido",
     gross: "Rendimento",
     ir: "IR",
-    fee: "Taxa"
+    fee: "Taxa",
+    dueDate: "Vencimento"
   }
 }
