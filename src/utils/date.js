@@ -15,7 +15,7 @@ function formatDate(value, format = t("common.dateFormat")) {
 function parseDate(
   value,
   format = t("common.dateFormat"),
-  defaultValue = new Date()
+  defaultValue = Date.UTC(2000, 1)
 ) {
   let formattedValue = value
   if (typeof value === "number") {
