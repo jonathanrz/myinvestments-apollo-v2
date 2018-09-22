@@ -8,6 +8,7 @@ export default gql`
       type
       holder
       objective
+      dueDate
     }
   }
 `

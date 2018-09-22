@@ -7,7 +7,8 @@ export default {
     "name",
     "type",
     "holder",
-    "objective"
+    "objective",
+    "dueDate"
   ]),
   listQuery: require("./list").default,
   createMutation: graphqlUtils.createMutation(
