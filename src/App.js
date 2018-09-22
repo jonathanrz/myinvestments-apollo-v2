@@ -2,6 +2,9 @@ import React, { Component } from "react"
 import { ApolloProvider } from "react-apollo"
 import { Router } from "react-router-dom"
 import createBrowserHistory from "history/createBrowserHistory"
+import DateFnsUtils from "material-ui-pickers/utils/date-fns-utils"
+import MuiPickersUtilsProvider from "material-ui-pickers/utils/MuiPickersUtilsProvider"
+import ptDateFnLocale from "date-fns/locale/pt-BR"
 import { AuthProvider } from "app/common/AuthContext"
 import Layout from "app/common/Layout"
 import { SnackbarProvider } from "app/common/Snackbar"
@@ -64,23 +67,25 @@ class App extends Component {
     }
 
     return (
-      <LoadingIndicatorProvider>
-        <ApolloProvider client={this.apolloClient}>
-          <AuthProvider
-            data-test="auth-provider"
-            loggedIn={Boolean(this.state.token)}
-            setToken={this.setToken}
-          >
-            <SnackbarProvider>
-              <Router history={this.history}>
-                <URLSearchProvider>
-                  <Layout>{routes}</Layout>
-                </URLSearchProvider>
-              </Router>
-            </SnackbarProvider>
-          </AuthProvider>
-        </ApolloProvider>
-      </LoadingIndicatorProvider>
+      <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptDateFnLocale}>
+        <LoadingIndicatorProvider>
+          <ApolloProvider client={this.apolloClient}>
+            <AuthProvider
+              data-test="auth-provider"
+              loggedIn={Boolean(this.state.token)}
+              setToken={this.setToken}
+            >
+              <SnackbarProvider>
+                <Router history={this.history}>
+                  <URLSearchProvider>
+                    <Layout>{routes}</Layout>
+                  </URLSearchProvider>
+                </Router>
+              </SnackbarProvider>
+            </AuthProvider>
+          </ApolloProvider>
+        </LoadingIndicatorProvider>
+      </MuiPickersUtilsProvider>
     )
   }
 }

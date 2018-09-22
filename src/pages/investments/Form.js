@@ -1,5 +1,6 @@
 import { t } from "i18next"
 import React, { Fragment } from "react"
+import DateField from "app/common/formFields/Date"
 import TextField from "app/common/formFields/Text"
 import * as validations from "app/utils/validations"
 
@@ -16,6 +17,7 @@ function Form({ create }) {
           validate={validations.composeValidators(validations.required())}
         />
       ))}
+      <DateField name="dueDate" label={t("investments.fields.dueDate")} />
     </Fragment>
   )
 }

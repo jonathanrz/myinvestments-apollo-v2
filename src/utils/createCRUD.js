@@ -8,7 +8,7 @@ import UpdatePage from "app/common/UpdatePage"
 function createCRUD({
   entity: entityName,
   cellStyle,
-  pathPreffix,
+  pathPrefix,
   i18nKey,
   listColumns,
   upsertForm: UpsertForm,
@@ -17,7 +17,7 @@ function createCRUD({
   update,
   upsert
 }) {
-  const path = path => `/${pathPreffix}${path || ""}`
+  const path = path => `/${pathPrefix}${path || ""}`
 
   const {
     getQuery,
@@ -31,7 +31,7 @@ function createCRUD({
     title: t(`${i18nKey}.listPage.title`),
     query: listQuery,
     createHref: path("/create"),
-    buildUpdateHref: node => `/${pathPreffix}/${node.uuid}/update`,
+    buildUpdateHref: node => `/${pathPrefix}/${node.uuid}/update`,
     columns: listColumns,
     cellStyle,
     listCard

@@ -6,14 +6,15 @@ export default {
     title: "Investimentos",
     createTitle: "Criar investimento",
     updateTitle: "Atualizar investimento",
-    duplicateInvestiment: "Já existe um investimento com esse nome",
+    duplicateInvestment: "Já existe um investimento com esse nome",
     genericErrorMessage: "Ocorreu um erro ao salvar o investimento"
   },
   fields: {
     name: "Nome",
     type: "Tipo",
     holder: "Detentor",
-    objective: "Objetivo"
+    objective: "Objetivo",
+    dueDate: "Vencimento"
   },
   actions: {
     show: "Ver investimento",
