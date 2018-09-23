@@ -5,6 +5,7 @@ routeBuilder
   .private("/dashboard", "dashboard")
   .crud("/investments", "investments")
   .private("/investment/:uuid", "investment")
+  .crud("/incomes", "incomes")
   .public("/login", "login")
   .public("/internalError", "internalError")
   /*

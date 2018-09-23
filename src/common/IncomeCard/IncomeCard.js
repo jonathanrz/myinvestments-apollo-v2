@@ -34,7 +34,7 @@ const styles = {
   }
 }
 
-function IncomeCard({ classes, income }) {
+function IncomeCard({ classes, result: income }) {
   return (
     <Card className={classes.card} key={income.uuid}>
       <CardContent>
