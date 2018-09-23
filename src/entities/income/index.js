@@ -14,6 +14,6 @@ export default {
     "fee"
   ]),
   listQuery: require("./list").default,
-  createMutation: graphqlUtils.createMutation("createIncome", "IncomeInput"),
+  createMutation: require("./create").default,
   updateMutation: graphqlUtils.updateMutation("updateIncome", "IncomeInput")
 }

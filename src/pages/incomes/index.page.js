@@ -1,4 +1,5 @@
 import { t } from "i18next"
+import queryString from "query-string"
 import createCRUD from "app/utils/createCRUD"
 import Form from "./Form"
 
@@ -17,6 +18,14 @@ const { ListPage, CreatePage, UpdatePage } = createCRUD({
         }
       }
       return data
+    }
+  },
+  create: {
+    parseVariables: props => {
+      const query = queryString.parse(props.history.location.search)
+      return {
+        investmentUuid: query["investment"]
+      }
     }
   }
 })

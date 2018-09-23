@@ -1,11 +1,19 @@
 import React, { Fragment } from "react"
 import { t } from "i18next"
+import { Link } from "react-router-dom"
 import { withStyles } from "@material-ui/core/styles"
+import AddIcon from "@material-ui/icons/Add"
+import ButtonWithIcon from "app/common/ButtonWithIcon"
 import DateField from "app/common/DateField"
 import TextField from "app/common/TextField"
 import IncomeCard from "./IncomeCard"
 
 const styles = {
+  header: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
   details: {
     display: "flex",
     flexDirection: "row",
@@ -45,7 +53,15 @@ function Body({ classes, investment, incomes }) {
           />
         )}
       </div>
-      <p className={classes.subtitle}>{t("investment.incomes")}</p>
+      <div className={classes.header}>
+        <span className={classes.subtitle}>{t("investment.incomes")}</span>
+        <ButtonWithIcon
+          component={Link}
+          to={`/incomes/create?investment=${investment.uuid}`}
+          icon={AddIcon}
+          text={t("listPage.createButtonLabel")}
+        />
+      </div>
       {incomes.map(income => (
         <IncomeCard key={income.uuid} income={income} />
       ))}
