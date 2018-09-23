@@ -7,6 +7,7 @@ import FormPage from "app/common/FormPage"
 
 function CreatePage({
   parseOutput = identity,
+  parseVariables = () => {},
   successMessage = t("createPage.defaultSuccessMessage"),
   errorMessage = t("createPage.defaultErrorMessage"),
   ...props
@@ -14,7 +15,10 @@ function CreatePage({
   return (
     <FormPage
       {...props}
-      parseVariables={values => ({ data: parseOutput(values) })}
+      parseVariables={values => ({
+        data: parseOutput(values),
+        ...parseVariables(props)
+      })}
       successMessage={successMessage}
       errorMessage={errorMessage}
       buttons={
