@@ -6,6 +6,7 @@ import Card from "@material-ui/core/Card"
 import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
+import Form from "./Form"
 
 const styles = {
   actions: {
@@ -34,6 +35,7 @@ function InvestmentCard({ classes, investment }) {
         <Typography variant="headline" component="h2">
           {investment.name}
         </Typography>
+        <Form investment={investment} />
       </CardContent>
       <CardActions className={classes.actions}>
         <Button
@@ -42,13 +44,6 @@ function InvestmentCard({ classes, investment }) {
           color="primary"
         >
           {t("investments.actions.show")}
-        </Button>
-        <Button
-          href={`investments/${investment.uuid}/update`}
-          size="small"
-          color="primary"
-        >
-          {t("investments.actions.update")}
         </Button>
       </CardActions>
     </Card>
