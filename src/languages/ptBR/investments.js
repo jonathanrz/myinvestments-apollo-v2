@@ -2,6 +2,9 @@ export default {
   listPage: {
     title: "Investimentos"
   },
+  ofMonth: {
+    title: "Investimentos do mês"
+  },
   upsertPages: {
     title: "Investimentos",
     createTitle: "Criar investimento",

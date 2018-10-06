@@ -16,7 +16,8 @@ export default {
   upload: "Enviar",
   menu: {
     dashboard: "Dashboard",
-    investments: "Investimentos"
+    investments: "Investimentos",
+    investmentsOfMonth: "Investimentos do mês"
   },
   validations: {
     required: "Requerido",

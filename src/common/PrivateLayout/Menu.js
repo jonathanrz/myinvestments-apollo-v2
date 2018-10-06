@@ -14,6 +14,7 @@ export const menuItems = [
    */
   { to: "/", text: t("common.menu.dashboard") },
   { to: "/investments", text: t("common.menu.investments") },
+  { to: "/investmentsOfMonth", text: t("common.menu.investmentsOfMonth") },
   { divider: true }
 ]
 

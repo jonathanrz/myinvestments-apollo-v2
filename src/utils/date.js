@@ -12,6 +12,10 @@ function formatDate(value, format = t("common.dateFormat")) {
   return dateFnsFormat(value, format)
 }
 
+function formatDateForApi(value) {
+  return formatDate(value, "t")
+}
+
 function parseDate(
   value,
   format = t("common.dateFormat"),
@@ -24,4 +28,4 @@ function parseDate(
   return parse(formattedValue, format, defaultValue)
 }
 
-export { formatDate, parseDate }
+export { formatDate, formatDateForApi, parseDate }

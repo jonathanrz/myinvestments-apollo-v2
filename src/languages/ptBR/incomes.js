@@ -19,6 +19,7 @@ export default {
     fee: "Taxa"
   },
   actions: {
-    update: "Editar rendimento"
+    update: "Editar rendimento",
+    save: "Salvar"
   }
 }
