@@ -39,7 +39,7 @@ function InvestmentCard({ classes, investment }) {
       </CardContent>
       <CardActions className={classes.actions}>
         <Button
-          href={`investment/${investment.uuid}`}
+          href={`/investment/${investment.uuid}`}
           size="small"
           color="primary"
         >
