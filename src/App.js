@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { ApolloProvider } from "react-apollo"
-import { Router } from "react-router-dom"
-import createBrowserHistory from "history/createBrowserHistory"
+import { HashRouter as Router } from "react-router-dom"
 import DateFnsUtils from "material-ui-pickers/utils/date-fns-utils"
 import MuiPickersUtilsProvider from "material-ui-pickers/utils/MuiPickersUtilsProvider"
 import ptDateFnLocale from "date-fns/locale/pt-BR"
@@ -16,35 +15,15 @@ import routes from "./routes"
 
 class App extends Component {
   state = {
-    token: localStorage.get("token"),
-    error: false
+    token: localStorage.get("token")
   }
 
   constructor() {
     super()
 
-    this.history = createBrowserHistory()
-
     this.apolloClient = createApolloClient({
       getToken: this.getToken,
       onUnauthorized: this.onUnauthorized
-    })
-  }
-
-  componentDidCatch() {
-    if (process.env.NODE_ENV !== "production") {
-      return null
-    }
-    /*
-     * We need to set the error state to true
-     * to stop the rendering of the broken
-     * tree, after that we can redirect the user
-     * to the internal error page and then resume
-     * the rendering
-     */
-    this.setState({ error: true }, () => {
-      this.history.push("/internalError")
-      this.setState({ error: false })
     })
   }
 
@@ -62,10 +41,6 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.error) {
-      return null
-    }
-
     return (
       <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptDateFnLocale}>
         <LoadingIndicatorProvider>
@@ -76,7 +51,7 @@ class App extends Component {
               setToken={this.setToken}
             >
               <SnackbarProvider>
-                <Router history={this.history}>
+                <Router>
                   <URLSearchProvider>
                     <Layout>{routes}</Layout>
                   </URLSearchProvider>
