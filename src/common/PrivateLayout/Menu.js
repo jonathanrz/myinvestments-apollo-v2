@@ -1,5 +1,5 @@
 import { t } from "i18next"
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import { Link } from "react-router-dom"
 import { withStyles } from "@material-ui/core/styles"
 import Drawer from "@material-ui/core/Drawer"
@@ -7,14 +7,22 @@ import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import Divider from "@material-ui/core/Divider"
 import ListItemText from "@material-ui/core/ListItemText"
+import Collapse from "@material-ui/core/Collapse"
+import ExpandLess from "@material-ui/icons/ExpandLess"
+import ExpandMore from "@material-ui/icons/ExpandMore"
 
 export const menuItems = [
-  /*
-   * Content related pages
-   */
   { to: "/", text: t("common.menu.dashboard") },
-  { to: "/investments", text: t("common.menu.investments") },
-  { to: "/investmentsOfMonth", text: t("common.menu.investmentsOfMonth") },
+  {
+    group: true,
+    text: t("common.menu.investments"),
+    controlKey: "investmentsExpanded",
+    items: [
+      { to: "/investments", text: t("common.menu.investmentsActual") },
+      { to: "/investments", text: t("common.menu.investmentsSold") },
+      { to: "/investmentsOfMonth", text: t("common.menu.investmentsOfMonth") }
+    ]
+  },
   { divider: true }
 ]
 
@@ -24,15 +32,64 @@ const styles = theme => ({
   },
   listItemText: {
     fontSize: 14
+  },
+  listSubItemText: {
+    fontSize: 14,
+    marginLeft: 20
   }
 })
 
 class Menu extends Component {
-  renderMenuLink = ({ to, text, divider }, index) => {
-    if (divider) {
-      return <Divider key={index} data-test="divider" />
-    }
+  state = {
+    investmentsExpanded: false
+  }
 
+  renderDivider = (_, index) => {
+    return <Divider key={index} data-test="divider" />
+  }
+
+  renderGroupItem = ({ to, text, controlKey, items }, index) => {
+    return (
+      <Fragment>
+        <ListItem
+          key={index}
+          button
+          data-test="group"
+          onClick={() =>
+            this.setState({ [controlKey]: !this.state[controlKey] })
+          }
+        >
+          <ListItemText
+            primary={text}
+            classes={{ primary: this.props.classes.listItemText }}
+            data-test="link-text"
+          />
+          {this.state[controlKey] ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
+        <Collapse in={this.state[controlKey]} timeout="auto" unmountOnExit>
+          <List component="div">
+            {items.map((item, itemIndex) => (
+              <ListItem
+                key={`${index}-${itemIndex}`}
+                button
+                component={Link}
+                to={item.to}
+                data-test="link"
+              >
+                <ListItemText
+                  primary={item.text}
+                  classes={{ primary: this.props.classes.listSubItemText }}
+                  data-test="link-text"
+                />
+              </ListItem>
+            ))}
+          </List>
+        </Collapse>
+      </Fragment>
+    )
+  }
+
+  renderMenuLink = ({ to, text }, index) => {
     return (
       <ListItem key={index} button component={Link} to={to} data-test="link">
         <ListItemText
@@ -53,7 +110,16 @@ class Menu extends Component {
         onClose={onClose}
         classes={{ paper: classes.drawerPaper }}
       >
-        <List>{menuItems.map(this.renderMenuLink)}</List>
+        <List>
+          {menuItems.map(
+            (item, index) =>
+              item.divider
+                ? this.renderDivider(item, index)
+                : item.group
+                  ? this.renderGroupItem(item, index)
+                  : this.renderMenuLink(item, index)
+          )}
+        </List>
       </Drawer>
     )
   }
