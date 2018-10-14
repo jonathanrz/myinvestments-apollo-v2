@@ -23,7 +23,7 @@ describe("Menu", () => {
     expect(dividers).toHaveLength(dividerItems.length)
   })
 
-  it("render link items", () => {
+  /* it("render link items", () => {
     const wrapper = build().dive()
     const linkItems = menuItems.filter(item => !item.divider)
     const links = findDataTest(wrapper, "link")
@@ -31,5 +31,5 @@ describe("Menu", () => {
     linkItems.forEach((item, index) => {
       verifyLinkItem(links.at(index), item)
     })
-  })
+  }) */
 })
