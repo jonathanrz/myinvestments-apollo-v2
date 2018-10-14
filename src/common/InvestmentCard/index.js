@@ -29,16 +29,16 @@ function InvestmentCard({ classes, result: investment, updateHref }) {
   return (
     <Card className={classes.card} key={investment.uuid}>
       <CardContent>
-        <Typography className={classes.header} color="textSecondary">
-          <span>{investment.type}</span>
-          <span>{investment.holder}</span>
-          <span>{investment.objective}</span>
+        <div className={classes.header}>
+          <Typography color="textSecondary">{investment.type}</Typography>
+          <Typography color="textSecondary">{investment.holder}</Typography>
+          <Typography color="textSecondary">{investment.objective}</Typography>
           {investment.dueDate && (
             <Typography color="secondary">
               <DatePrinter value={investment.dueDate} />
             </Typography>
           )}
-        </Typography>
+        </div>
         <Typography variant="headline" component="h2">
           {investment.name}
         </Typography>

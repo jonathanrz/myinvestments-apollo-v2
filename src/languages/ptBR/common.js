@@ -17,7 +17,9 @@ export default {
   menu: {
     dashboard: "Dashboard",
     investments: "Investimentos",
-    investmentsOfMonth: "Investimentos do mês"
+    investmentsActual: "Atuais",
+    investmentsSold: "Vendidos",
+    investmentsOfMonth: "Do mês"
   },
   validations: {
     required: "Requerido",

@@ -10,7 +10,6 @@ function ListPage({
   title,
   query,
   variables,
-  columns,
   cellStyle,
   createHref,
   buildUpdateHref,

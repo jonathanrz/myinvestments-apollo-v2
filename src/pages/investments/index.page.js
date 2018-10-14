@@ -1,7 +1,7 @@
 import { t } from "i18next"
+import Card from "app/common/InvestmentCard"
 import createCRUD from "app/utils/createCRUD"
 import Form from "./Form"
-import Card from "./Card"
 
 const { ListPage, CreatePage, UpdatePage } = createCRUD({
   entity: "Investment",
