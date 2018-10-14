@@ -19,7 +19,7 @@ export const menuItems = [
     controlKey: "investmentsExpanded",
     items: [
       { to: "/investments", text: t("common.menu.investmentsActual") },
-      { to: "/investments", text: t("common.menu.investmentsSold") },
+      { to: "/investmentsSold", text: t("common.menu.investmentsSold") },
       { to: "/investmentsOfMonth", text: t("common.menu.investmentsOfMonth") }
     ]
   },
@@ -50,7 +50,7 @@ class Menu extends Component {
 
   renderGroupItem = ({ to, text, controlKey, items }, index) => {
     return (
-      <Fragment>
+      <Fragment key={index}>
         <ListItem
           key={index}
           button

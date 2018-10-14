@@ -2,6 +2,9 @@ export default {
   listPage: {
     title: "Investimentos"
   },
+  soldPage: {
+    title: "Vendidos"
+  },
   ofMonth: {
     title: "Investimentos do mês"
   },

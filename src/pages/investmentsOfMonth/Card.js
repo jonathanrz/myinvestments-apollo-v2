@@ -1,5 +1,6 @@
 import React from "react"
 import { t } from "i18next"
+import { Link } from "react-router-dom"
 import { withStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import Card from "@material-ui/core/Card"
@@ -39,7 +40,8 @@ function InvestmentCard({ classes, investment }) {
       </CardContent>
       <CardActions className={classes.actions}>
         <Button
-          href={`/investment/${investment.uuid}`}
+          component={Link}
+          to={`/investment/${investment.uuid}`}
           size="small"
           color="primary"
         >
