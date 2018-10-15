@@ -1,12 +1,13 @@
-import React, { Fragment } from "react"
+import React from "react"
 import Query from "app/common/Query"
 import { getQueryKey } from "app/utils/graphql"
+import Filter from "app/common/ListFilter"
 
 function RemoteTable({
   query,
   variables,
   queryProps,
-  columns,
+  filters,
   cellStyle,
   buildUpdateHref,
   listCard: ListCard
@@ -28,15 +29,17 @@ function RemoteTable({
         }
 
         return (
-          <Fragment>
-            {result.map((result, index) => (
-              <ListCard
-                key={index}
-                result={result}
-                updateHref={buildUpdateHref(result)}
-              />
-            ))}
-          </Fragment>
+          <Filter filters={filters || []} result={result}>
+            {filteredResult =>
+              filteredResult.map((result, index) => (
+                <ListCard
+                  key={index}
+                  result={result}
+                  updateHref={buildUpdateHref(result)}
+                />
+              ))
+            }
+          </Filter>
         )
       }}
     </Query>

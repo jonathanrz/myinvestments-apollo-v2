@@ -14,6 +14,7 @@ export default {
   save: "Salvar",
   select: "Selecionar",
   upload: "Enviar",
+  none: "Nenhum",
   menu: {
     dashboard: "Dashboard",
     investments: "Investimentos",

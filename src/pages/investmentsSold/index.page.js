@@ -12,6 +12,14 @@ function ListPage() {
       <RemoteTable
         query={query}
         listCard={Card}
+        filters={[
+          { key: "type", name: t("investments.listPage.filters.type") },
+          { key: "holder", name: t("investments.listPage.filters.holder") },
+          {
+            key: "objective",
+            name: t("investments.listPage.filters.objective")
+          }
+        ]}
         buildUpdateHref={node => `/investments/${node.uuid}/update`}
       />
     </Fragment>
