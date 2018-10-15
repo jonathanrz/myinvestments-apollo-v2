@@ -8,7 +8,11 @@ const { ListPage, CreatePage, UpdatePage } = createCRUD({
   pathPrefix: "investments",
   i18nKey: "investments",
   listCard: Card,
-  filters: [{ key: "type", name: t("investments.listPage.filters.type") }],
+  filters: [
+    { key: "type", name: t("investments.listPage.filters.type") },
+    { key: "holder", name: t("investments.listPage.filters.holder") },
+    { key: "objective", name: t("investments.listPage.filters.objective") }
+  ],
   upsertForm: Form,
   upsert: {
     errorMessage: error =>

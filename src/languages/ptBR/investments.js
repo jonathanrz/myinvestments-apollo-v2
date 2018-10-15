@@ -2,7 +2,9 @@ export default {
   listPage: {
     title: "Investimentos",
     filters: {
-      type: "Tipo"
+      type: "Tipo",
+      holder: "Detentor",
+      objective: "Objetivo"
     }
   },
   soldPage: {
