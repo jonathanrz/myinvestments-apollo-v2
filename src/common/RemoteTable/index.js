@@ -1,7 +1,7 @@
-import React, { Fragment } from "react"
+import React from "react"
 import Query from "app/common/Query"
 import { getQueryKey } from "app/utils/graphql"
-import Filter from "./Filter"
+import Filter from "app/common/ListFilter"
 
 function RemoteTable({
   query,

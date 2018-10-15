@@ -3,6 +3,7 @@ import { t } from "i18next"
 import { get } from "lodash/fp"
 import Query from "app/common/Query"
 import PageHeader from "app/common/PageHeader"
+import Filter from "app/common/ListFilter"
 import query from "./query"
 import Card from "./Card"
 
@@ -13,11 +14,22 @@ function InvestmentsOfMonth() {
         return (
           <Fragment>
             <PageHeader title={t("investments.ofMonth.title")} />
-            {(get("investmentsOfMonth", data) || []).map(
-              (investment, index) => (
-                <Card key={index} investment={investment} />
-              )
-            )}
+            <Filter
+              filters={[
+                { key: "type", name: t("investments.listPage.filters.type") },
+                {
+                  key: "holder",
+                  name: t("investments.listPage.filters.holder")
+                }
+              ]}
+              result={get("investmentsOfMonth", data) || []}
+            >
+              {filteredResult =>
+                filteredResult.map((investment, index) => (
+                  <Card key={index} investment={investment} />
+                ))
+              }
+            </Filter>
           </Fragment>
         )
       }}
