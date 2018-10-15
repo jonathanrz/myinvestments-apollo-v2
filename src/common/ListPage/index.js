@@ -10,7 +10,7 @@ function ListPage({
   title,
   query,
   variables,
-  cellStyle,
+  filters,
   createHref,
   buildUpdateHref,
   listCard
@@ -33,7 +33,7 @@ function ListPage({
         data-test="base-list-page"
         query={query}
         variables={variables}
-        cellStyle={cellStyle}
+        filters={filters}
         buildUpdateHref={buildUpdateHref}
         listCard={listCard}
       />

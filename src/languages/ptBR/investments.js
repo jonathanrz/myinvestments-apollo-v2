@@ -1,6 +1,9 @@
 export default {
   listPage: {
-    title: "Investimentos"
+    title: "Investimentos",
+    filters: {
+      type: "Tipo"
+    }
   },
   soldPage: {
     title: "Vendidos"
