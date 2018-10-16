@@ -1,7 +1,8 @@
 import React from "react"
+import ByType from "./ByType"
 
 function Dashboard() {
-  return <div>Dashboard Page</div>
+  return <ByType />
 }
 
 export default Dashboard
