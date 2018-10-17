@@ -1,5 +1,6 @@
 export default {
   common: require("./common").default,
+  dashboard: require("./dashboard").default,
   errorPage: require("./errorPage").default,
   createPage: require("./createPage").default,
   investment: require("./investment").default,

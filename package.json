@@ -72,6 +72,7 @@
     "react-dom": "^16.3.0",
     "react-final-form": "^3.5.1",
     "react-router-dom": "^4.2.2",
-    "reset-css": "^3.0.0"
+    "reset-css": "^3.0.0",
+    "victory": "^30.5.0"
   }
 }
