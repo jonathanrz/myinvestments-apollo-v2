@@ -4,6 +4,7 @@ import Query from "app/common/Query"
 import query from "./query"
 import { groupByData, formatForTable } from "../common"
 import Table from "../common/Table"
+import PieChart from "../common/PieChart"
 
 function ByObjective({ classes }) {
   return (
@@ -14,14 +15,26 @@ function ByObjective({ classes }) {
           "objective"
         )
         return (
-          <Table
-            columns={[
-              { header: t("dashboard.objective"), key: "label" },
-              { header: t("dashboard.value"), key: "value", numeric: true },
-              { header: t("dashboard.percent"), key: "percent", numeric: true }
-            ]}
-            content={formattedData}
-          />
+          <div style={{ display: "flex" }}>
+            <Table
+              columns={[
+                { header: t("dashboard.objective"), key: "label" },
+                { header: t("dashboard.value"), key: "value", numeric: true },
+                {
+                  header: t("dashboard.percent"),
+                  key: "percent",
+                  numeric: true
+                }
+              ]}
+              content={formattedData}
+            />
+            <PieChart
+              data={formattedData.filter(data => data.value > 1).map(data => ({
+                x: data.label,
+                y: data.value
+              }))}
+            />
+          </div>
         )
       }}
     </Query>
