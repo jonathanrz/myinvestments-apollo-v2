@@ -6,6 +6,7 @@ import TableCell from "@material-ui/core/TableCell"
 import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
+import { formatCurrency } from "app/utils/currency"
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -34,7 +35,6 @@ const styles = theme => ({
 })
 
 function Table({ classes, columns, content }) {
-  console.log({ columns, content })
   return (
     <Paper className={classes.root}>
       <MUITable className={classes.table}>
@@ -59,11 +59,15 @@ function Table({ classes, columns, content }) {
                       scope="row"
                       numeric={column.numeric}
                     >
-                      {line[column.key]}
+                      {column.currency
+                        ? formatCurrency(line[column.key])
+                        : line[column.key]}
                     </CustomTableCell>
                   ) : (
                     <CustomTableCell key={index} numeric={column.numeric}>
-                      {line[column.key]}
+                      {column.currency
+                        ? formatCurrency(line[column.key])
+                        : line[column.key]}
                     </CustomTableCell>
                   )
               )}

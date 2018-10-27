@@ -19,7 +19,12 @@ function ByObjective({ classes }) {
             <Table
               columns={[
                 { header: t("dashboard.objective"), key: "label" },
-                { header: t("dashboard.value"), key: "value", numeric: true },
+                {
+                  header: t("dashboard.value"),
+                  key: "value",
+                  numeric: true,
+                  currency: true
+                },
                 {
                   header: t("dashboard.percent"),
                   key: "percent",
