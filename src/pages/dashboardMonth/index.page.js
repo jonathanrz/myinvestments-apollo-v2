@@ -1,6 +1,6 @@
 import React from "react"
 import { t } from "i18next"
-import { flatten, sortBy, groupBy, get } from "lodash/fp"
+import { flatten, sortBy, orderBy, groupBy, get } from "lodash/fp"
 import Query from "app/common/Query"
 import { formatDate } from "app/utils/date"
 import Table from "./Table"
@@ -15,8 +15,9 @@ function mapIncomes(data) {
     return []
   }
 
-  const incomes = sortBy(
+  const incomes = orderBy(
     "date",
+    "desc",
     flatten(
       data.investments.map(investment =>
         investment.incomes.map(income => ({ ...income, investment }))
@@ -37,6 +38,11 @@ function DashboardMonth() {
         const { investments } = data
         const incomes = mapIncomes(data)
 
+        const total = { investment: t("common.total") }
+        Object.keys(incomes).map(key => {
+          total[key] = incomes[key].reduce((acc, i) => acc + i.value, 0)
+        })
+
         return (
           <Table
             columns={[
@@ -48,22 +54,25 @@ function DashboardMonth() {
                 currency: true
               }))
             ]}
-            content={sortBy(
-              i => i.investment.toLowerCase(),
-              investments.map(investment => {
-                const result = { investment: investment.name }
-                Object.keys(incomes).map(key => {
-                  result[key] =
-                    get(
-                      "value",
-                      incomes[key].find(
-                        income => income.investment.uuid === investment.uuid
-                      )
-                    ) || 0
+            content={[
+              ...sortBy(
+                i => i.investment.toLowerCase(),
+                investments.map(investment => {
+                  const result = { investment: investment.name }
+                  Object.keys(incomes).map(key => {
+                    result[key] =
+                      get(
+                        "value",
+                        incomes[key].find(
+                          income => income.investment.uuid === investment.uuid
+                        )
+                      ) || 0
+                  })
+                  return result
                 })
-                return result
-              })
-            )}
+              ),
+              total
+            ]}
           />
         )
       }}
