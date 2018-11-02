@@ -1,4 +1,5 @@
-import { groupBy } from "lodash/fp"
+import { groupBy, sortBy } from "lodash/fp"
+import { t } from "i18next"
 
 export function groupByData(data, key) {
   if (!data.investments) {
@@ -19,8 +20,14 @@ export function formatForTable(data, key) {
     value: data[key].reduce((acc, current) => acc + current.value, 0)
   }))
   const totalValue = formatted.reduce((acc, current) => acc + current.value, 0)
-  return formatted.map(type => ({
-    ...type,
-    percent: `${((type.value / totalValue) * 100).toFixed(2)}%`
-  }))
+  return [
+    ...sortBy(
+      o => o.label.toLowerCase(),
+      formatted.map(type => ({
+        ...type,
+        percent: `${((type.value / totalValue) * 100).toFixed(2)}%`
+      }))
+    ),
+    { label: t("common.total"), value: totalValue, percent: "100%" }
+  ]
 }
