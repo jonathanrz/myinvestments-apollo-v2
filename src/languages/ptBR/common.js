@@ -2,6 +2,7 @@ export default {
   siteTitle: "Meus Investimentos",
   logout: "Logout",
   dateFormat: "dd/MM/yyyy",
+  monthFormat: "MM/yyyy",
   dateTimeFormat: "dd/MM/yyyy [-] HH[h]mm",
   clearLabel: "Limpar",
   back: "Voltar",
