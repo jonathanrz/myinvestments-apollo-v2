@@ -12,7 +12,15 @@ import ExpandLess from "@material-ui/icons/ExpandLess"
 import ExpandMore from "@material-ui/icons/ExpandMore"
 
 export const menuItems = [
-  { to: "/", text: t("common.menu.dashboard") },
+  {
+    group: true,
+    text: t("common.menu.dashboard"),
+    controlKey: "dashboardExpanded",
+    items: [
+      { to: "/", text: t("common.menu.dashboard") },
+      { to: "/dashboardMonth", text: t("common.menu.dashboardMonthYield") }
+    ]
+  },
   {
     group: true,
     text: t("common.menu.investments"),
@@ -41,7 +49,8 @@ const styles = theme => ({
 
 class Menu extends Component {
   state = {
-    investmentsExpanded: false
+    dashboardExpanded: true,
+    investmentsExpanded: true
   }
 
   renderDivider = (_, index) => {

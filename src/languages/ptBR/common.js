@@ -18,6 +18,7 @@ export default {
   total: "Total",
   menu: {
     dashboard: "Dashboard",
+    dashboardMonthYield: "Rendimentos por mês",
     investments: "Investimentos",
     investmentsActual: "Atuais",
     investmentsSold: "Vendidos",

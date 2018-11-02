@@ -3,6 +3,7 @@ import routeBuilder from "app/utils/routeBuilder"
 routeBuilder
   .redirect("/", "/dashboard")
   .private("/dashboard", "dashboard")
+  .private("/dashboardMonth", "dashboardMonth")
   .crud("/investments", "investments")
   .private("/investment/:uuid", "investment")
   .private("/investmentsSold", "investmentsSold")
