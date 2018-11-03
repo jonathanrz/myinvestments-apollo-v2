@@ -18,7 +18,11 @@ export const menuItems = [
     controlKey: "dashboardExpanded",
     items: [
       { to: "/", text: t("common.menu.dashboard") },
-      { to: "/dashboardMonth", text: t("common.menu.dashboardMonthYield") }
+      { to: "/dashboardMonth", text: t("common.menu.dashboardMonthYield") },
+      {
+        to: "/dashboardInvestmentValue",
+        text: t("common.menu.dashboardInvestmentValue")
+      }
     ]
   },
   {
