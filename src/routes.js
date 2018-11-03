@@ -4,6 +4,7 @@ routeBuilder
   .redirect("/", "/dashboard")
   .private("/dashboard", "dashboard")
   .private("/dashboardMonth", "dashboardMonth")
+  .private("/dashboardInvestmentValue", "dashboardInvestmentValue")
   .crud("/investments", "investments")
   .private("/investment/:uuid", "investment")
   .private("/investmentsSold", "investmentsSold")
