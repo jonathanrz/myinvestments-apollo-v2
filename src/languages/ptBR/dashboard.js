@@ -3,5 +3,8 @@ export default {
   objective: "Objetivo",
   holder: "Detentor",
   value: "Valor",
-  percent: "Percentual"
+  percent: "Percentual",
+  month: {
+    investment: "Investimento"
+  }
 }
