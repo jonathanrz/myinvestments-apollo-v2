@@ -40,14 +40,6 @@ const styles = theme => ({
   }
 })
 
-function cellColor(value) {
-  return value < 0
-    ? { color: red["500"] }
-    : value > 0
-      ? { color: green["500"] }
-      : { color: grey["500"] }
-}
-
 function Table({ classes, columns, content }) {
   return (
     <Paper className={classes.root}>
