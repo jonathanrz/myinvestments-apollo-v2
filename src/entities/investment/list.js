@@ -2,7 +2,7 @@ import gql from "graphql-tag"
 
 export default gql`
   query ListInvestments {
-    investments(sold: false) {
+    activeInvestments {
       uuid
       name
       type
