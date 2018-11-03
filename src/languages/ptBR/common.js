@@ -22,6 +22,7 @@ export default {
     dashboard: "Dashboard",
     dashboardMonthYield: "Rendimentos por mês",
     dashboardInvestmentValue: "Valor dos investimentos",
+    dashboardActiveInvestments: "Investimentos atuais",
     dashboardSoldInvestments: "Investimentos vendidos",
     investments: "Investimentos",
     investmentsActual: "Atuais",
