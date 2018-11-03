@@ -40,7 +40,7 @@ function DashboardMonth() {
 
         const total = { investment: t("common.total") }
         Object.keys(incomes).map(key => {
-          total[key] = incomes[key].reduce((acc, i) => acc + i.value, 0)
+          total[key] = incomes[key].reduce((acc, i) => acc + i.yield, 0)
         })
 
         return (
@@ -51,7 +51,8 @@ function DashboardMonth() {
                 header: key,
                 key,
                 numeric: true,
-                currency: true
+                currency: true,
+                colored: true
               }))
             ]}
             content={[
@@ -62,7 +63,7 @@ function DashboardMonth() {
                   Object.keys(incomes).map(key => {
                     result[key] =
                       get(
-                        "value",
+                        "yield",
                         incomes[key].find(
                           income => income.investment.uuid === investment.uuid
                         )
