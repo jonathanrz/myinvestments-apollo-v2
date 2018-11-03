@@ -25,7 +25,7 @@ class Filter extends Component {
 
   extractFilterOptions = filter => {
     return [
-      { label: t("common.none"), value: "" },
+      { label: t("common.all"), value: "" },
       ...this.props.result
         .map(r => r[filter.key])
         .filter((value, index, self) => self.indexOf(value) === index)

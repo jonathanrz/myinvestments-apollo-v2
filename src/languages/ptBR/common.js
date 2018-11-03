@@ -16,6 +16,7 @@ export default {
   select: "Selecionar",
   upload: "Enviar",
   none: "Nenhum",
+  all: "Todos",
   total: "Total",
   menu: {
     dashboard: "Dashboard",
