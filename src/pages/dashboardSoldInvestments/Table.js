@@ -6,9 +6,6 @@ import TableCell from "@material-ui/core/TableCell"
 import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
-import green from "@material-ui/core/colors/green"
-import red from "@material-ui/core/colors/red"
-import grey from "@material-ui/core/colors/grey"
 import { formatCurrency } from "app/utils/currency"
 
 const CustomTableCell = withStyles(theme => ({
