@@ -84,12 +84,12 @@ function DashboardMonth() {
   return (
     <Query query={query}>
       {({ data }) => {
-        if (!data || !data.investments) {
+        if (!data || !data.activeInvestments) {
           return null
         }
 
         return (
-          <Filter filters={filters} result={data.investments}>
+          <Filter filters={filters} result={data.activeInvestments}>
             {filteredResult => renderTable(filteredResult)}
           </Filter>
         )
