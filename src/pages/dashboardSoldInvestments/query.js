@@ -10,6 +10,7 @@ export default gql`
       objective
       totalBought
       totalYield
+      totalReceived
       totalMonth
     }
   }

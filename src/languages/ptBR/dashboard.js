@@ -10,6 +10,7 @@ export default {
   soldInvestments: {
     totalBought: "Comprado",
     totalYield: "Rendimento",
+    totalReceived: "Recebido",
     totalMonth: "Meses",
     perc: "Percentual",
     monthPerc: "% a.m"

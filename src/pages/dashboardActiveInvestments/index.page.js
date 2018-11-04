@@ -24,6 +24,12 @@ const columns = [
     currency: true
   },
   {
+    header: t("dashboard.soldInvestments.totalReceived"),
+    key: "totalReceived",
+    numeric: true,
+    currency: true
+  },
+  {
     header: t("dashboard.soldInvestments.totalMonth"),
     key: "totalMonth",
     numeric: true
@@ -71,7 +77,11 @@ function renderTable(investments) {
         {
           name: t("common.total"),
           totalBought: content.reduce((acc, data) => acc + data.totalBought, 0),
-          totalYield: content.reduce((acc, data) => acc + data.totalYield, 0)
+          totalYield: content.reduce((acc, data) => acc + data.totalYield, 0),
+          totalReceived: content.reduce(
+            (acc, data) => acc + data.totalReceived,
+            0
+          )
         }
       ]}
     />
