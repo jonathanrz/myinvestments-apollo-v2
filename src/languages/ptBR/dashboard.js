@@ -6,6 +6,7 @@ export default {
   percent: "Percentual",
   month: {
     investment: "Investimento",
+    onlyActiveInvestments: "Somente investimentos ativos",
     period: "Período",
     value: "Valor",
     received: "Recebido",
