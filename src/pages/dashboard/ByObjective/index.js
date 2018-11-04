@@ -34,10 +34,14 @@ function ByObjective({ classes }) {
               content={formattedData}
             />
             <PieChart
-              data={formattedData.filter(data => data.value > 1).map(data => ({
-                x: data.label,
-                y: data.value
-              }))}
+              data={formattedData
+                .filter(
+                  data => data.value > 1 && data.label !== t("common.total")
+                )
+                .map(data => ({
+                  x: data.label,
+                  y: data.value
+                }))}
             />
           </div>
         )

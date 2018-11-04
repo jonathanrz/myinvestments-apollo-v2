@@ -2,12 +2,12 @@ import { groupBy, sortBy } from "lodash/fp"
 import { t } from "i18next"
 
 export function groupByData(data, key) {
-  if (!data.investments) {
+  if (!data.activeInvestments) {
     return {}
   }
   return groupBy(
     key,
-    data.investments.map(investment => ({
+    data.activeInvestments.map(investment => ({
       [key]: investment[key],
       value: investment.lastIncome ? investment.lastIncome.value : 0
     }))
