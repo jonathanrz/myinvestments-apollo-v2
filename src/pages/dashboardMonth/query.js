@@ -12,6 +12,7 @@ export default gql`
         uuid
         date
         yield
+        received
       }
     }
   }
