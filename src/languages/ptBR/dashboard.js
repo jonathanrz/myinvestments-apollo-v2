@@ -1,9 +1,11 @@
 export default {
+  name: "Nome",
   type: "Tipo",
   objective: "Objetivo",
   holder: "Detentor",
   value: "Valor",
   percent: "Percentual",
+  dueDate: "Vencimento",
   month: {
     investment: "Investimento",
     onlyActiveInvestments: "Somente investimentos ativos",

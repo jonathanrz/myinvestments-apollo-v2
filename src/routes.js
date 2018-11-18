@@ -5,6 +5,7 @@ routeBuilder
   .private("/dashboard", "dashboard")
   .private("/dashboardMonth", "dashboardMonth")
   .private("/dashboardInvestmentValue", "dashboardInvestmentValue")
+  .private("/dashboardDueDate", "dashboardDueDate")
   .private("/dashboardActiveInvestments", "dashboardActiveInvestments")
   .private("/dashboardSoldInvestments", "dashboardSoldInvestments")
   .crud("/investments", "investments")

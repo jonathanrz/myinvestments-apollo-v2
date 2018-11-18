@@ -24,6 +24,10 @@ export const menuItems = [
         text: t("common.menu.dashboardInvestmentValue")
       },
       {
+        to: "/dashboardDueDate",
+        text: t("common.menu.dashboardDueDate")
+      },
+      {
         to: "/dashboardActiveInvestments",
         text: t("common.menu.dashboardActiveInvestments")
       },
