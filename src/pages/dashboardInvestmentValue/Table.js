@@ -10,6 +10,7 @@ import green from "@material-ui/core/colors/green"
 import red from "@material-ui/core/colors/red"
 import grey from "@material-ui/core/colors/grey"
 import { formatCurrency } from "app/utils/currency"
+import ReactTooltip from "react-tooltip"
 
 const CustomTableCell = withStyles(theme => ({
   root: {
@@ -51,6 +52,7 @@ function cellColor(value) {
 function Table({ classes, columns, content }) {
   return (
     <Paper className={classes.root}>
+      <div data-tip="teste">teste</div>
       <MUITable className={classes.table}>
         <TableHead>
           <TableRow>
@@ -81,16 +83,17 @@ function Table({ classes, columns, content }) {
                     <CustomTableCell
                       key={index}
                       numeric={column.numeric}
+                      data-tip={
+                        line[column.key].diff !== 0
+                          ? formatCurrency(line[column.key].diff)
+                          : null
+                      }
                       style={
                         column.colored ? cellColor(line[column.key].diff) : {}
                       }
                     >
                       {column.currency
-                        ? line[column.key].diff !== 0
-                          ? `${formatCurrency(
-                              line[column.key].value
-                            )} (${formatCurrency(line[column.key].diff)})`
-                          : formatCurrency(line[column.key].value)
+                        ? formatCurrency(line[column.key].value)
                         : line[column.key]}
                     </CustomTableCell>
                   )
@@ -99,6 +102,7 @@ function Table({ classes, columns, content }) {
           ))}
         </TableBody>
       </MUITable>
+      <ReactTooltip />
     </Paper>
   )
 }
