@@ -9,6 +9,7 @@ import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
 import DatePrinter from "app/common/DatePrinter"
 import TextField from "app/common/TextField"
+import { formatCurrency, currencyColor } from "app/utils/currency"
 
 const styles = {
   actions: {
@@ -16,6 +17,7 @@ const styles = {
   },
   card: {
     minWidth: 275,
+    width: "31.5%",
     margin: 10
   },
   fields: {
@@ -44,24 +46,34 @@ function IncomeCard({ classes, income }) {
           <Typography color="secondary">
             <DatePrinter value={income.date} />
           </Typography>
+          <Typography color="primary">
+            {formatCurrency(income.value)}
+          </Typography>
+          <Typography
+            color="primary"
+            style={{ color: currencyColor(income.yield) }}
+          >
+            {formatCurrency(income.yield)}
+          </Typography>
         </Typography>
         <div className={classes.fields}>
           {[
-            { label: t("investment.labels.value"), value: income.value },
             { label: t("investment.labels.bought"), value: income.bought },
             { label: t("investment.labels.sold"), value: income.sold },
             { label: t("investment.labels.gross"), value: income.gross },
             { label: t("investment.labels.ir"), value: income.ir },
             { label: t("investment.labels.fee"), value: income.fee }
-          ].map((field, index) => (
-            <TextField
-              key={index}
-              className={classes.field}
-              label={field.label}
-              value={field.value}
-              disabled
-            />
-          ))}
+          ].map((field, index) =>
+            field.value ? (
+              <TextField
+                key={index}
+                className={classes.field}
+                label={field.label}
+                value={formatCurrency(field.value)}
+                disabled
+              />
+            ) : null
+          )}
         </div>
       </CardContent>
       <CardActions className={classes.actions}>

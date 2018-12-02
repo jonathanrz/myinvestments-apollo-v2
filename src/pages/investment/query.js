@@ -14,6 +14,7 @@ export default gql`
         date
         quantity
         value
+        yield
         bought
         sold
         gross

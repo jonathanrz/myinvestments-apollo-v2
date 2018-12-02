@@ -6,10 +6,7 @@ import TableCell from "@material-ui/core/TableCell"
 import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
-import green from "@material-ui/core/colors/green"
-import red from "@material-ui/core/colors/red"
-import grey from "@material-ui/core/colors/grey"
-import { formatCurrency } from "app/utils/currency"
+import { formatCurrency, currencyColor } from "app/utils/currency"
 
 const CustomTableCell = withStyles(theme => ({
   root: {
@@ -40,14 +37,6 @@ const styles = theme => ({
   }
 })
 
-function cellColor(value) {
-  return value < 0
-    ? { color: red["500"] }
-    : value > 0
-      ? { color: green["500"] }
-      : { color: grey["500"] }
-}
-
 function Table({ classes, columns, content }) {
   return (
     <Paper className={classes.root}>
@@ -64,30 +53,33 @@ function Table({ classes, columns, content }) {
         <TableBody>
           {content.map((line, index) => (
             <TableRow key={index} className={classes.row}>
-              {columns.map(
-                (column, index) =>
-                  index === 0 ? (
-                    <CustomTableCell
-                      key={index}
-                      component="th"
-                      scope="row"
-                      numeric={column.numeric}
-                    >
-                      {column.currency
-                        ? formatCurrency(line[column.key])
-                        : line[column.key]}
-                    </CustomTableCell>
-                  ) : (
-                    <CustomTableCell
-                      key={index}
-                      numeric={column.numeric}
-                      style={column.colored ? cellColor(line[column.key]) : {}}
-                    >
-                      {column.currency
-                        ? formatCurrency(line[column.key])
-                        : line[column.key]}
-                    </CustomTableCell>
-                  )
+              {columns.map((column, index) =>
+                index === 0 ? (
+                  <CustomTableCell
+                    key={index}
+                    component="th"
+                    scope="row"
+                    numeric={column.numeric}
+                  >
+                    {column.currency
+                      ? formatCurrency(line[column.key])
+                      : line[column.key]}
+                  </CustomTableCell>
+                ) : (
+                  <CustomTableCell
+                    key={index}
+                    numeric={column.numeric}
+                    style={
+                      column.colored
+                        ? { color: currencyColor(line[column.key]) }
+                        : {}
+                    }
+                  >
+                    {column.currency
+                      ? formatCurrency(line[column.key])
+                      : line[column.key]}
+                  </CustomTableCell>
+                )
               )}
             </TableRow>
           ))}
