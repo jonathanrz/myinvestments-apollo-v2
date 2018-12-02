@@ -2,7 +2,7 @@ import gql from "graphql-tag"
 import React from "react"
 import { shallow } from "enzyme"
 import { findDataTest } from "app/utils/tests"
-import RemoteTable from "./index"
+import { RemoteTable } from "./index"
 
 const someQuery = gql`
   {
@@ -13,13 +13,14 @@ const someQuery = gql`
   }
 `
 
-describe("ListPage", () => {
+describe("RemoteTable", () => {
   let wrapper
   const headerComponent = () => <div>Header</div>
 
   beforeEach(() => {
     wrapper = shallow(
       <RemoteTable
+        classes={{}}
         query={someQuery}
         columns="SOME COLUMNS"
         headerComponent={headerComponent}

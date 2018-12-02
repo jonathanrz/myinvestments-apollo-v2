@@ -12,7 +12,7 @@ const styles = {
   }
 }
 
-function RemoteTable({
+export function RemoteTable({
   classes,
   query,
   variables,
