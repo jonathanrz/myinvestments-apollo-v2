@@ -6,7 +6,7 @@ import AddIcon from "@material-ui/icons/Add"
 import ButtonWithIcon from "app/common/ButtonWithIcon"
 import DateField from "app/common/DateField"
 import TextField from "app/common/TextField"
-import IncomeCard from "./IncomeCard"
+import IncomeCard from "app/common/IncomeCard"
 
 const styles = {
   header: {
@@ -18,6 +18,11 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  incomesList: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap"
   },
   subtitle: {
     fontSize: "30px",
@@ -62,9 +67,11 @@ function Body({ classes, investment, incomes }) {
           text={t("listPage.createButtonLabel")}
         />
       </div>
-      {incomes.map(income => (
-        <IncomeCard key={income.uuid} income={income} />
-      ))}
+      <div className={classes.incomesList}>
+        {incomes.map(income => (
+          <IncomeCard key={income.uuid} income={income} />
+        ))}
+      </div>
     </Fragment>
   )
 }

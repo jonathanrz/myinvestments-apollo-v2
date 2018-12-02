@@ -9,6 +9,9 @@ export default gql`
       holder
       objective
       dueDate
+      lastIncome {
+        value
+      }
     }
   }
 `
