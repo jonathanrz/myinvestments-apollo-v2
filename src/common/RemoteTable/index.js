@@ -1,14 +1,23 @@
 import React from "react"
+import { withStyles } from "@material-ui/core/styles"
 import Query from "app/common/Query"
 import { getQueryKey } from "app/utils/graphql"
 import Filter from "app/common/ListFilter"
 
+const styles = {
+  list: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap"
+  }
+}
+
 function RemoteTable({
+  classes,
   query,
   variables,
   queryProps,
   filters,
-  cellStyle,
   buildUpdateHref,
   listCard: ListCard
 }) {
@@ -30,15 +39,17 @@ function RemoteTable({
 
         return (
           <Filter filters={filters || []} result={result}>
-            {filteredResult =>
-              filteredResult.map((result, index) => (
-                <ListCard
-                  key={index}
-                  result={result}
-                  updateHref={buildUpdateHref(result)}
-                />
-              ))
-            }
+            {filteredResult => (
+              <div className={classes.list}>
+                {filteredResult.map((result, index) => (
+                  <ListCard
+                    key={index}
+                    result={result}
+                    updateHref={buildUpdateHref(result)}
+                  />
+                ))}
+              </div>
+            )}
           </Filter>
         )
       }}
@@ -46,4 +57,4 @@ function RemoteTable({
   )
 }
 
-export default RemoteTable
+export default withStyles(styles)(RemoteTable)

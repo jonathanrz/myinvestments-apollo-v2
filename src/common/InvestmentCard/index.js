@@ -8,6 +8,7 @@ import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
 import DatePrinter from "app/common/DatePrinter"
+import { formatCurrency } from "app/utils/currency"
 
 const styles = {
   actions: {
@@ -15,6 +16,7 @@ const styles = {
   },
   card: {
     minWidth: 275,
+    width: "31.5%",
     margin: 10
   },
   header: {
@@ -22,6 +24,13 @@ const styles = {
     fontSize: 14,
     display: "flex",
     justifyContent: "space-between"
+  },
+  headline: {
+    display: "flex",
+    justifyContent: "space-between"
+  },
+  value: {
+    flexShrink: 0
   }
 }
 
@@ -39,9 +48,14 @@ function InvestmentCard({ classes, result: investment, updateHref }) {
             </Typography>
           )}
         </div>
-        <Typography variant="headline" component="h2">
-          {investment.name}
-        </Typography>
+        <div className={classes.header}>
+          <Typography variant="headline">{investment.name}</Typography>
+          {investment.lastIncome ? (
+            <Typography color="primary" className={classes.value}>
+              {formatCurrency(investment.lastIncome.value)}
+            </Typography>
+          ) : null}
+        </div>
       </CardContent>
       <CardActions className={classes.actions}>
         <Button
