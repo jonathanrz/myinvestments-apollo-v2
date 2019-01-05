@@ -4,9 +4,9 @@ import DateField from "app/common/formFields/Date"
 import TextField from "app/common/formFields/Text"
 import * as validations from "app/utils/validations"
 
-const textFields = ["name", "type", "holder", "objective"]
+const textFields = ["name", "type", "incomeType", "holder", "objective"]
 
-function Form({ create }) {
+function Form() {
   return (
     <Fragment>
       {textFields.map((field, index) => (

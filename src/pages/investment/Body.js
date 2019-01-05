@@ -44,6 +44,10 @@ function Body({ classes, investment, incomes }) {
           value={investment.type}
         />
         <TextField
+          label={t("investment.labels.incomeType")}
+          value={investment.incomeType}
+        />
+        <TextField
           label={t("investment.labels.holder")}
           value={investment.holder}
         />

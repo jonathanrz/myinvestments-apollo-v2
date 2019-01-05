@@ -6,19 +6,19 @@ import { groupByData, formatForTable } from "../common"
 import Table from "../common/Table"
 import PieChart from "../common/PieChart"
 
-function ByObjective() {
+function ByIncomeType() {
   return (
     <Query query={query}>
       {({ data }) => {
         const formattedData = formatForTable(
-          groupByData(data, "objective"),
-          "objective"
+          groupByData(data, "incomeType"),
+          "incomeType"
         )
         return (
           <div style={{ display: "flex", flexGrow: 1 }}>
             <Table
               columns={[
-                { header: t("dashboard.objective"), key: "label" },
+                { header: t("dashboard.incomeType"), key: "label" },
                 {
                   header: t("dashboard.value"),
                   key: "value",
@@ -50,4 +50,4 @@ function ByObjective() {
   )
 }
 
-export default ByObjective
+export default ByIncomeType

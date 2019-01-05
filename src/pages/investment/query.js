@@ -6,6 +6,7 @@ export default gql`
       uuid
       name
       type
+      incomeType
       holder
       objective
       dueDate

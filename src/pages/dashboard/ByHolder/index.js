@@ -15,7 +15,7 @@ function ByHolder({ classes }) {
           "holder"
         )
         return (
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", flexGrow: 1 }}>
             <Table
               columns={[
                 { header: t("dashboard.holder"), key: "label" },

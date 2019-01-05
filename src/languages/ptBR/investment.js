@@ -3,6 +3,7 @@ export default {
   labels: {
     name: "Nome",
     type: "Tipo",
+    incomeType: "Tipo de Renda",
     holder: "Detentor",
     objective: "Objetivo",
     quantity: "Quantidade",

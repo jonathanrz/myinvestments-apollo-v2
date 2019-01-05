@@ -1,6 +1,7 @@
 export default {
   name: "Nome",
   type: "Tipo",
+  incomeType: "Tipo de Renda",
   objective: "Objetivo",
   holder: "Detentor",
   value: "Valor",

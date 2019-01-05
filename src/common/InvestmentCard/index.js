@@ -25,6 +25,9 @@ const styles = {
     display: "flex",
     justifyContent: "space-between"
   },
+  headerItem: {
+    marginRight: 5
+  },
   headline: {
     display: "flex",
     justifyContent: "space-between"
@@ -39,11 +42,20 @@ function InvestmentCard({ classes, result: investment, updateHref }) {
     <Card className={classes.card} key={investment.uuid}>
       <CardContent>
         <div className={classes.header}>
-          <Typography color="textSecondary">{investment.type}</Typography>
-          <Typography color="textSecondary">{investment.holder}</Typography>
-          <Typography color="textSecondary">{investment.objective}</Typography>
+          <Typography className={classes.headerItem} color="textSecondary">
+            {investment.type}
+          </Typography>
+          <Typography className={classes.headerItem} color="textSecondary">
+            {investment.incomeType}
+          </Typography>
+          <Typography className={classes.headerItem} color="textSecondary">
+            {investment.holder}
+          </Typography>
+          <Typography className={classes.headerItem} color="textSecondary">
+            {investment.objective}
+          </Typography>
           {investment.dueDate && (
-            <Typography color="secondary">
+            <Typography className={classes.headerItem} color="secondary">
               <DatePrinter value={investment.dueDate} />
             </Typography>
           )}

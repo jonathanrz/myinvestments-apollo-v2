@@ -3,6 +3,7 @@ export default {
     title: "Investimentos",
     filters: {
       type: "Tipo",
+      incomeType: "Tipo de Renda",
       holder: "Detentor",
       objective: "Objetivo"
     }
@@ -23,6 +24,7 @@ export default {
   fields: {
     name: "Nome",
     type: "Tipo",
+    incomeType: "Tipo de Renda",
     holder: "Detentor",
     objective: "Objetivo",
     dueDate: "Vencimento"

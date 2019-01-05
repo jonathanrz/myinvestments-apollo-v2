@@ -10,6 +10,7 @@ const { ListPage, CreatePage, UpdatePage } = createCRUD({
   listCard: Card,
   filters: [
     { key: "type", name: t("investments.listPage.filters.type") },
+    { key: "incomeType", name: t("investments.listPage.filters.incomeType") },
     { key: "holder", name: t("investments.listPage.filters.holder") },
     { key: "objective", name: t("investments.listPage.filters.objective") }
   ],

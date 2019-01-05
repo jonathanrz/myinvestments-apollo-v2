@@ -6,13 +6,13 @@ import { groupByData, formatForTable } from "../common"
 import Table from "../common/Table"
 import PieChart from "../common/PieChart"
 
-function ByType({ classes }) {
+function ByType() {
   return (
     <Query query={query}>
       {({ data }) => {
         const formattedData = formatForTable(groupByData(data, "type"), "type")
         return (
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", flexGrow: 1 }}>
             <Table
               columns={[
                 { header: t("dashboard.type"), key: "label" },

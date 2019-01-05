@@ -6,6 +6,7 @@ export default {
     "uuid",
     "name",
     "type",
+    "incomeType",
     "holder",
     "objective",
     "dueDate"
