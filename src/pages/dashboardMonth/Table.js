@@ -52,34 +52,35 @@ function Table({ classes, columns, content }) {
         </TableHead>
         <TableBody>
           {content.map((line, index) => (
-            <TableRow key={index} className={classes.row}>
-              {columns.map((column, index) =>
-                index === 0 ? (
-                  <CustomTableCell
-                    key={index}
-                    component="th"
-                    scope="row"
-                    numeric={column.numeric}
-                  >
-                    {column.currency
-                      ? formatCurrency(line[column.key])
-                      : line[column.key]}
-                  </CustomTableCell>
-                ) : (
-                  <CustomTableCell
-                    key={index}
-                    numeric={column.numeric}
-                    style={
-                      column.colored
-                        ? { color: currencyColor(line[column.key]) }
-                        : {}
-                    }
-                  >
-                    {column.currency
-                      ? formatCurrency(line[column.key])
-                      : line[column.key]}
-                  </CustomTableCell>
-                )
+            <TableRow key={index} className={classes.row} hover>
+              {columns.map(
+                (column, index) =>
+                  index === 0 ? (
+                    <CustomTableCell
+                      key={index}
+                      component="th"
+                      scope="row"
+                      numeric={column.numeric}
+                    >
+                      {column.currency
+                        ? formatCurrency(line[column.key])
+                        : line[column.key]}
+                    </CustomTableCell>
+                  ) : (
+                    <CustomTableCell
+                      key={index}
+                      numeric={column.numeric}
+                      style={
+                        column.colored
+                          ? { color: currencyColor(line[column.key]) }
+                          : {}
+                      }
+                    >
+                      {column.currency
+                        ? formatCurrency(line[column.key])
+                        : line[column.key]}
+                    </CustomTableCell>
+                  )
               )}
             </TableRow>
           ))}

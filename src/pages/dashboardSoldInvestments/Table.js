@@ -52,7 +52,7 @@ function Table({ classes, columns, content }) {
         </TableHead>
         <TableBody>
           {content.map((line, index) => (
-            <TableRow key={index} className={classes.row}>
+            <TableRow key={index} className={classes.row} hover>
               {columns.map((column, index) => (
                 <CustomTableCell
                   key={index}
