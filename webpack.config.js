@@ -2,6 +2,7 @@ const path = require("path")
 const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CleanWebpackPlugin = require("clean-webpack-plugin")
+const DashboardPlugin = require("webpack-dashboard/plugin")
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config()
@@ -30,7 +31,8 @@ module.exports = {
         }),
         {}
       )
-    })
+    }),
+    new DashboardPlugin()
   ],
   module: {
     rules: [
