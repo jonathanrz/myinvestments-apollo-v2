@@ -65,7 +65,7 @@ function renderTable(investments) {
       ]}
       content={[
         ...sortBy(
-          i => i.investment.toLowerCase(),
+          i => i.investment && i.investment.toLowerCase(),
           investments.map(investment => {
             const result = { investment: investment.name }
             Object.keys(incomes).map(key => {

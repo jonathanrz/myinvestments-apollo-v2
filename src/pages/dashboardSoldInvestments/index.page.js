@@ -58,7 +58,7 @@ const filters = [
 function renderTable(investments) {
   const content = [
     ...sortBy(
-      i => i.name.toLowerCase(),
+      i => i.name && i.name.toLowerCase(),
       investments.map(investment => {
         const perc = investment.totalYield / investment.totalBought
         return {
